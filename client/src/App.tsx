@@ -1,8 +1,15 @@
 import React from 'react';
+import Header from './components/Header';
+import ListOrgs from './components/ListOrgs';
 
-const App = () => {
-    return(
-        <React.Fragment>App comp</React.Fragment>
+
+const App: React.SFC = () => {
+    
+    return (
+        <React.Fragment>
+            <Header />
+            <ListOrgs />
+        </React.Fragment>
     );
 }
 
