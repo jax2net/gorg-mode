@@ -1,5 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Org from './Org';
+//import Edit from './Edit';
+import Delete from './Delete';
 import axios from 'axios';
 
 const ListOrgs: React.FC = () => {
@@ -40,17 +42,19 @@ const ListOrgs: React.FC = () => {
                 <div className="column-17 center-column" style={{ marginTop: "1%" }}>
                     <form onSubmit={postOrg}>
                         <label>
-                            Create org
+                            <h5>Create org</h5>
                         </label>
                         <textarea onChange={(e) => setText(e.target.value)}></textarea>
                             <button className="btn btn-large" style={{ marginTop: "1%" }} type="submit">Post Org</button>
                     </form>
                 </div>
                 <div className="column-17 center-column" style={{ marginTop: "1%" }}>
-                    {orgs.map(o => (
-                        <div className="panel panel-no-border" style={{ marginTop: 10 }}>
+                    {orgs.slice(0).reverse().map(o => (
+                        <div className="panel panel-no-border" style={{ marginTop: 10 }} key={o.id}>
                             <h4 className="trailer-half">{`Org #${o.id}`}</h4>
                             <Org org={o} />
+                            {/* <Edit org={o} /> */}
+                            <Delete org={o} />
                         </div>
                     ))}
                 </div>
